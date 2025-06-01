@@ -1,79 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epistemial - AI Solutions</title>
+    <title>Epistemial - Soluciones Avanzadas de IA y Aplicaciones NLP Personalizadas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">Epistemial</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#solutions">Solutions</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <a href="#" class="logo">
+                    <img src="assets/logo with typo side.svg" alt="Epistemial Logo" class="logo__image" width="160" height="40">
+                </a>
+            </div>
+            <ul class="nav__menu">
+                <li><a href="#inicio" class="nav__link">Inicio</a></li>
+                <li><a href="#nosotros" class="nav__link">Nosotros</a></li>
+                <li><a href="#servicios" class="nav__link">Servicios</a></li>
+                <li><a href="#contacto" class="nav__link">Contacto</a></li>
             </ul>
-            <a href="#contact" class="btn">Get Started</a>
+            <button class="nav__toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>AI Solutions for Your Business</h1>
-            <p>Expertise in Natural Language Processing and language model-based applications.</p>
-            <a href="#contact" class="btn">Contact Us</a>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero__background">
+            <div class="ai-background">
+                <div class="chat-bubbles">
+                    <div class="chat-bubble chat-bubble--1">Clasificar: Positivo ✓</div>
+                    <div class="chat-bubble chat-bubble--2">RAG: Buscando contexto...</div>
+                    <div class="chat-bubble chat-bubble--3">Resumen generado ✓</div>
+                    <div class="chat-bubble chat-bubble--4">Análisis completado</div>
+                    <div class="chat-bubble chat-bubble--5">Extracción de entidades</div>
+                    <div class="chat-bubble chat-bubble--6">Traducción automática</div>
+                </div>
+                <div class="neural-network">
+                    <div class="neural-node neural-node--1"></div>
+                    <div class="neural-node neural-node--2"></div>
+                    <div class="neural-node neural-node--3"></div>
+                    <div class="neural-node neural-node--4"></div>
+                    <div class="neural-connection neural-connection--1"></div>
+                    <div class="neural-connection neural-connection--2"></div>
+                    <div class="neural-connection neural-connection--3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__logo">
+                    <img src="assets/logo with typo.svg" alt="Epistemial - Soluciones Avanzadas de IA" class="hero__logo-image">
+                </div>
+                <h1 class="hero__title">
+                    Soluciones <span class="text-gradient">Avanzadas de IA</span> y Aplicaciones NLP Personalizadas
+                </h1>
+                <p class="hero__subtitle">
+                    Nos especializamos en aplicaciones NLP personalizadas y soluciones basadas en LLM adaptadas a las necesidades de tu negocio.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contacto" class="btn btn--primary btn--lg">Comenzar Proyecto</a>
+                    <a href="#servicios" class="btn btn--secondary btn--lg">Ver Servicios</a>
+                </div>
+            </div>
+            
+            <!-- AI Examples Showcase -->
+            <div class="ai-examples">
+                <div class="ai-example ai-example--classification">
+                    <div class="example-header">Clasificación de Texto</div>
+                    <div class="example-content">
+                        <div class="text-sample">"Este producto es increíble"</div>
+                        <div class="classification-result">
+                            <span class="label positive">Positivo: 95%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ai-example ai-example--rag">
+                    <div class="example-header">RAG - Búsqueda Aumentada</div>
+                    <div class="example-content">
+                        <div class="query">¿Cuáles son nuestros servicios?</div>
+                        <div class="rag-process">
+                            <div class="step">📄 Buscando documentos...</div>
+                            <div class="step">🧠 Generando respuesta...</div>
+                            <div class="answer">Ofrecemos NLP personalizado, análisis de sentimientos y chatbots inteligentes.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ai-example ai-example--summary">
+                    <div class="example-header">Resumen de Documentos</div>
+                    <div class="example-content">
+                        <div class="document">📄 Documento largo...</div>
+                        <div class="summary-arrow">↓</div>
+                        <div class="summary">✨ Resumen: Ideas clave extraídas automáticamente</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="solutions" class="features">
-        <h2>Our Expertise</h2>
-        <div class="feature-list">
-            <div class="feature-item">
-                <h3>Natural Language Processing</h3>
-                <p>Advanced text analysis, sentiment detection, and conversation modeling.</p>
+    <!-- About Us Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <p class="section-subtitle">Excelencia europea en inteligencia artificial</p>
             </div>
-            <div class="feature-item">
-                <h3>Language Model Integration</h3>
-                <p>Customized solutions using state-of-the-art language models for your applications.</p>
-            </div>
-            <div class="feature-item">
-                <h3>Custom AI Solutions</h3>
-                <p>Tailored AI tools designed to empower your organization.</p>
+            <div class="about__content">
+                <div class="about__text">
+                    <h3>Innovación desde España</h3>
+                    <p>
+                        Basados en <strong>San Vicente del Raspeig, Alicante, España</strong>, somos especialistas en el desarrollo de aplicaciones de procesamiento de lenguaje natural (NLP) y soluciones basadas en modelos de lenguaje de gran escala (LLM).
+                    </p>
+                    <p>
+                        Nuestro equipo combina experiencia técnica avanzada con un profundo entendimiento de la cultura empresarial europea y los requisitos de protección de datos, ofreciendo soluciones de IA verdaderamente personalizadas.
+                    </p>
+                    <div class="about__highlights">
+                        <div class="highlight">
+                            <div class="highlight__icon">🇪🇸</div>
+                            <div class="highlight__content">
+                                <h4>Ubicados en España</h4>
+                                <p>Comprendemos el mercado europeo</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight__icon">🔒</div>
+                            <div class="highlight__content">
+                                <h4>GDPR Compliant</h4>
+                                <p>Protección de datos garantizada</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight__icon">🚀</div>
+                            <div class="highlight__content">
+                                <h4>Tecnología Avanzada</h4>
+                                <p>IA de última generación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual">
+                    <div class="stats-card">
+                        <div class="stat">
+                            <div class="stat__number">10+</div>
+                            <div class="stat__label">Años de Experiencia</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">50+</div>
+                            <div class="stat__label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">100%</div>
+                            <div class="stat__label">Soluciones Personalizadas</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <h2>About Epistemial</h2>
-        <p>Epistemial is dedicated to delivering cutting-edge AI solutions. Our team has extensive experience in natural language technologies and machine learning.</p>
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Soluciones de IA adaptadas a tu negocio</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">🧠</div>
+                    <h3 class="service-card__title">Aplicaciones NLP Personalizadas</h3>
+                    <p class="service-card__description">
+                        Soluciones de procesamiento de lenguaje natural diseñadas específicamente para tus requisitos empresariales.
+                    </p>
+                    <ul class="service-card__features">
+                        <li>Análisis de sentimientos</li>
+                        <li>Extracción de entidades</li>
+                        <li>Clasificación de texto</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">⚡</div>
+                    <h3 class="service-card__title">Soluciones Basadas en LLM</h3>
+                    <p class="service-card__description">
+                        Implementaciones avanzadas de modelos de lenguaje adaptadas a tu industria.
+                    </p>
+                    <ul class="service-card__features">
+                        <li>Chatbots inteligentes</li>
+                        <li>Generación de contenido</li>
+                        <li>Asistentes virtuales</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">📊</div>
+                    <h3 class="service-card__title">Consultoría en IA</h3>
+                    <p class="service-card__description">
+                        Orientación experta sobre adopción de IA y estrategias de implementación.
+                    </p>
+                    <ul class="service-card__features">
+                        <li>Auditoría de IA</li>
+                        <li>Planificación estratégica</li>
+                        <li>Roadmap tecnológico</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">🔬</div>
+                    <h3 class="service-card__title">Desarrollo de Machine Learning</h3>
+                    <p class="service-card__description">
+                        Modelos y algoritmos de aprendizaje automático personalizados.
+                    </p>
+                    <ul class="service-card__features">
+                        <li>Modelos predictivos</li>
+                        <li>Sistemas de recomendación</li>
+                        <li>Análisis avanzado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <form class="contact-form" action="#" method="post">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit" class="btn">Send Message</button>
-        </form>
+    <!-- Why Choose Us Section -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+                <p class="section-subtitle">Ventajas que nos distinguen en el mercado</p>
+            </div>
+            <div class="advantages__grid">
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">🎯</div>
+                    <h3 class="advantage-card__title">Experiencia Profunda en IA</h3>
+                    <p class="advantage-card__description">
+                        Conocimiento especializado en tecnologías NLP de vanguardia y modelos de lenguaje.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">🛠️</div>
+                    <h3 class="advantage-card__title">Soluciones a Medida</h3>
+                    <p class="advantage-card__description">
+                        Sin productos estándar: cada solución se construye específicamente para tus necesidades.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">🌟</div>
+                    <h3 class="advantage-card__title">Excelencia Europea</h3>
+                    <p class="advantage-card__description">
+                        Basados en España, entendemos la cultura empresarial europea y los requisitos de protección de datos.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-card__icon">✅</div>
+                    <h3 class="advantage-card__title">Resultados Probados</h3>
+                    <p class="advantage-card__description">
+                        Historial de implementaciones exitosas de IA en diversas industrias y casos de uso.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Epistemial. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact__content">
+                <div class="contact__info">
+                    <h2 class="contact__title">¡Hablemos!</h2>
+                    <p class="contact__subtitle">
+                        ¿Listo para transformar tu negocio con IA? Contáctanos para discutir tu proyecto.
+                    </p>
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <div class="contact__icon">📧</div>
+                            <div class="contact__text">
+                                <strong>Email</strong>
+                                <a href="mailto:info@epistemial.com">info@epistemial.com</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__icon">📞</div>
+                            <div class="contact__text">
+                                <strong>Teléfono</strong>
+                                <a href="tel:+34675901588">+34 675 901 588</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__icon">📍</div>
+                            <div class="contact__text">
+                                <strong>Ubicación</strong>
+                                <span>San Vicente del Raspeig, 03690, Alicante, España</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__form">
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email corporativo</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="form-label">Empresa</label>
+                            <input type="text" id="company" name="company" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" class="form-control" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <img src="assets/logo with typo side.svg" alt="Epistemial Logo" class="logo__image">
+                    </div>
+                    <p class="footer__description">
+                        Soluciones avanzadas de IA y aplicaciones NLP personalizadas desde España.
+                    </p>
+                </div>
+                <div class="footer__info">
+                    <div class="footer__section">
+                        <h4>Contacto</h4>
+                        <p>info@epistemial.com</p>
+                        <p>+34 675 901 588</p>
+                    </div>
+                    <div class="footer__section">
+                        <h4>Ubicación</h4>
+                        <p>San Vicente del Raspeig<br>03690, Alicante<br>España</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Epistemial. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
