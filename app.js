@@ -352,7 +352,7 @@ function addScrollIndicator() {
     scrollIndicator.innerHTML = `
         <div style="
             position: absolute;
-            bottom: 40px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -360,10 +360,11 @@ function addScrollIndicator() {
             align-items: center;
             animation: bounce 2s infinite;
             cursor: pointer;
-            z-index: 10;
+            z-index: 15;
             color: #1A456E;
             font-size: 14px;
             font-weight: 500;
+            pointer-events: auto;
         ">
             <div style="margin-bottom: 8px;">Descubre más</div>
             <div style="animation: bounceArrow 1.5s infinite;">

@@ -1,4 +1,3 @@
-
 :root {
   /* Colors */
   --color-background: rgba(252, 252, 249, 1);
@@ -580,49 +579,513 @@ select.form-control {
   gap: var(--space-16);
 }
 
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
+/* Chatbot Animation */
+.chatbot-animation {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  width: 320px;
+  height: 420px;
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatAnimation 4s ease-in-out infinite;
 }
 
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
+.chat-interface {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(194, 217, 240, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: chatInterfaceAppear 1.5s ease-out;
+  position: relative;
 }
 
-.block {
-  display: block;
+.chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.hidden {
-  display: none;
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  margin-right: 12px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(33, 128, 141, 0.3);
+  animation: avatarPulse 2s ease-in-out infinite;
+}
+
+.chat-avatar::after {
+  content: '🤖';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  animation: robotBlink 3s ease-in-out infinite;
+}
+
+.chat-status {
+  flex: 1;
+}
+
+.status-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow: hidden;
+}
+
+.message {
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: messageAppear 0.5s ease-out forwards;
+}
+
+.message-content {
+  background: var(--color-background);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  max-width: 80%;
+}
+
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-message .message-content {
+  background: var(--color-primary);
+  color: white;
+}
+
+.ai-message {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ai-message .message-content {
+  background: #f1f5f9;
+  color: var(--color-text);
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  opacity: 0;
+  animation: messageAppear 0.5s ease-out forwards;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-text-secondary);
+  border-radius: 50%;
+  margin-right: 4px;
+  animation: typingDot 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+  margin-right: 0;
+}
+
+@keyframes chatInterfaceAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes messageAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes avatarPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(33, 128, 141, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(33, 128, 141, 0.4);
+  }
+}
+
+@keyframes robotBlink {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.3;
+  }
+}
+
+/* Floating Bubbles Animation */
+.floating-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bubble {
+  position: absolute;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  animation: floatUp linear infinite;
+}
+
+.bubble-1 {
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.bubble-2 {
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+.bubble-3 {
+  left: 35%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 12s;
+  animation-delay: 1s;
+}
+
+.bubble-4 {
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.bubble-5 {
+  left: 70%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.bubble-6 {
+  left: 80%;
+  width: 25px;
+  height: 25px;
+  animation-duration: 13s;
+  animation-delay: 5s;
+}
+
+.bubble-7 {
+  left: 90%;
+  width: 35px;
+  height: 35px;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+.bubble-8 {
+  left: 15%;
+  width: 45px;
+  height: 45px;
+  animation-duration: 14s;
+  animation-delay: 7s;
+}
+
+/* Code Particles Animation */
+.code-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  color: rgba(33, 128, 141, 0.4);
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  animation: particleFloat linear infinite;
+}
+
+.particle-1 {
+  left: 5%;
+  top: 80%;
+  animation-duration: 15s;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  left: 25%;
+  top: 90%;
+  animation-duration: 18s;
+  animation-delay: 3s;
+}
+
+.particle-3 {
+  left: 45%;
+  top: 85%;
+  animation-duration: 16s;
+  animation-delay: 6s;
+}
+
+.particle-4 {
+  left: 65%;
+  top: 95%;
+  animation-duration: 20s;
+  animation-delay: 2s;
+}
+
+.particle-5 {
+  left: 75%;
+  top: 80%;
+  animation-duration: 17s;
+  animation-delay: 8s;
+}
+
+.particle-6 {
+  left: 85%;
+  top: 90%;
+  animation-duration: 19s;
+  animation-delay: 4s;
+}
+
+.particle-7 {
+  left: 15%;
+  top: 75%;
+  animation-duration: 21s;
+  animation-delay: 10s;
+}
+
+.particle-8 {
+  left: 95%;
+  top: 85%;
+  animation-duration: 14s;
+  animation-delay: 12s;
+}
+
+/* Neural Network Background */
+.neural-network-bg {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+}
+
+.neural-connection {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(33, 128, 141, 0.3), transparent);
+  height: 2px;
+  animation: pulseConnection 3s ease-in-out infinite;
+}
+
+.neural-connection-1 {
+  top: 20%;
+  left: 10%;
+  width: 30%;
+  transform: rotate(25deg);
+  animation-delay: 0s;
+}
+
+.neural-connection-2 {
+  top: 50%;
+  left: 40%;
+  width: 40%;
+  transform: rotate(-15deg);
+  animation-delay: 1s;
+}
+
+.neural-connection-3 {
+  top: 70%;
+  left: 20%;
+  width: 35%;
+  transform: rotate(35deg);
+  animation-delay: 2s;
+}
+
+.neural-node-bg {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  animation: nodeGlow 2s ease-in-out infinite alternate;
+}
+
+.neural-node-bg-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.neural-node-bg-2 {
+  top: 50%;
+  left: 60%;
+  animation-delay: 0.5s;
+}
+
+.neural-node-bg-3 {
+  top: 70%;
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.neural-node-bg-4 {
+  top: 30%;
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+/* Keyframe Animations */
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseConnection {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scaleX(0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes nodeGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(33, 128, 141, 0.5);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(33, 128, 141, 0.8);
+    transform: scale(1.3);
+  }
+}
+
+/* Responsive adjustments for chatbot */
+@media (max-width: 1024px) {
+  .chatbot-animation {
+    display: none;
+  }
 }
 
 /* Accessibility */
@@ -1413,8 +1876,11 @@ textarea.form-control {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-24);
   margin-top: var(--space-48);
+  margin-bottom: var(--space-64);
   max-width: 900px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .ai-example {
@@ -1604,16 +2070,63 @@ textarea.form-control {
 }
 
 .highlight__icon {
-  font-size: var(--font-size-3xl);
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light), var(--color-secondary));
   color: var(--color-primary);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(194, 217, 240, 0.25), 0 2px 8px rgba(194, 217, 240, 0.1);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight__icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left 0.6s ease-in-out;
+}
+
+.highlight__icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+.highlight__icon svg {
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.highlight__icon i {
+  font-size: 32px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.highlight:hover .highlight__icon {
+  transform: translateY(-4px) scale(1.1) rotate(3deg);
+  box-shadow: 0 10px 28px rgba(194, 217, 240, 0.4), 0 4px 12px rgba(194, 217, 240, 0.2);
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-secondary), var(--color-accent));
+}
+
+.highlight:hover .highlight__icon::before {
+  left: 100%;
 }
 
 .highlight__content h4 {
@@ -1727,9 +2240,66 @@ textarea.form-control {
 }
 
 .service-card__icon {
-  font-size: 48px;
-  margin-bottom: var(--space-16);
-  display: block;
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover), var(--color-secondary));
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(33, 128, 141, 0.25), 0 2px 8px rgba(33, 128, 141, 0.1);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.service-card__icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease-in-out;
+}
+
+.service-card__icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+.service-card__icon svg {
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.service-card__icon i {
+  font-size: 32px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.service-card:hover .service-card__icon {
+  transform: translateY(-6px) scale(1.1) rotate(2deg);
+  box-shadow: 0 12px 32px rgba(33, 128, 141, 0.4), 0 4px 16px rgba(33, 128, 141, 0.2);
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-secondary), var(--color-primary));
+}
+
+.service-card:hover .service-card__icon::before {
+  left: 100%;
 }
 
 .service-card__title {
@@ -1811,9 +2381,66 @@ textarea.form-control {
 }
 
 .advantage-card__icon {
-  font-size: 60px;
-  margin-bottom: var(--space-16);
-  display: block;
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--space-20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark), var(--color-secondary-light));
+  color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(194, 217, 240, 0.3), 0 2px 8px rgba(194, 217, 240, 0.15);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.advantage-card__icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left 0.6s ease-in-out;
+}
+
+.advantage-card__icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+.advantage-card__icon svg {
+  width: 36px;
+  height: 36px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.advantage-card__icon i {
+  font-size: 36px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.advantage-card:hover .advantage-card__icon {
+  transform: translateY(-6px) scale(1.1) rotate(-2deg);
+  box-shadow: 0 12px 32px rgba(194, 217, 240, 0.5), 0 4px 16px rgba(194, 217, 240, 0.25);
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-secondary-light), var(--color-accent));
+}
+
+.advantage-card:hover .advantage-card__icon::before {
+  left: 100%;
 }
 
 .advantage-card__title {
@@ -1890,15 +2517,58 @@ textarea.form-control {
 }
 
 .contact__icon {
-  font-size: var(--font-size-xl);
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-accent);
-  color: var(--color-primary);
-  border-radius: var(--radius-base);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-active), var(--color-secondary));
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(33, 128, 141, 0.25), 0 2px 8px rgba(33, 128, 141, 0.1);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease-in-out;
+}
+
+.contact__icon::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: calc(var(--radius-lg) - 2px);
+  pointer-events: none;
+}
+
+.contact__icon svg,
+.contact__icon i {
+  width: 28px;
+  height: 28px;
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  font-size: 28px;
+}
+
+.contact__item:hover .contact__icon {
+  transform: translateY(-4px) scale(1.1) rotate(1deg);
+  box-shadow: 0 10px 28px rgba(33, 128, 141, 0.4), 0 4px 12px rgba(33, 128, 141, 0.2);
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-secondary), var(--color-primary));
+}
+
+.contact__item:hover .contact__icon::before {
+  left: 100%;
 }
 
 .contact__text strong {
@@ -2109,4 +2779,226 @@ textarea.form-control {
 }
 .gap-16 {
   gap: var(--space-16);
+}
+
+/* Shimmer animation for icons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.service-card__icon,
+.advantage-card__icon,
+.highlight__icon,
+.contact__icon {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.service-card:hover .service-card__icon,
+.advantage-card:hover .advantage-card__icon,
+.highlight:hover .highlight__icon,
+.contact__item:hover .contact__icon {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Floating Tech Icons - Services Section */
+.floating-tech-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.tech-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 0.2;
+  animation: techIconFloat linear infinite;
+  color: var(--color-primary);
+}
+
+.tech-icon svg,
+.tech-icon i {
+  width: 100%;
+  height: 100%;
+  font-size: 40px;
+}
+
+.tech-icon-1 {
+  left: 15%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+}
+
+.tech-icon-2 {
+  left: 30%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+}
+
+.tech-icon-3 {
+  left: 50%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+.tech-icon-4 {
+  left: 70%;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+.tech-icon-5 {
+  left: 85%;
+  animation-duration: 14s;
+  animation-delay: 8s;
+}
+
+/* Floating Success Indicators - Advantages Section */
+.floating-success-indicators {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.success-indicator {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+  opacity: 0.15;
+  animation: successIndicatorFloat linear infinite;
+}
+
+.success-indicator svg,
+.success-indicator i {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+
+.success-indicator-1 {
+  left: 20%;
+  animation-duration: 16s;
+  animation-delay: 0s;
+}
+
+.success-indicator-2 {
+  left: 40%;
+  animation-duration: 12s;
+  animation-delay: 4s;
+}
+
+.success-indicator-3 {
+  left: 60%;
+  animation-duration: 20s;
+  animation-delay: 2s;
+}
+
+.success-indicator-4 {
+  left: 80%;
+  animation-duration: 14s;
+  animation-delay: 6s;
+}
+
+/* Keyframe Animations for New Elements */
+@keyframes techIconFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scale(1.2);
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes successIndicatorFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(50vh) translateX(20px) rotate(180deg);
+    opacity: 0.15;
+  }
+  85% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-50px) translateX(-20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Make sections relative for floating elements */
+.services, .advantages {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Responsive adjustments for animations */
+@media (max-width: 1024px) {
+  .chatbot-animation,
+  .floating-bubbles,
+  .code-particles,
+  .neural-network-bg {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-tech-icons,
+  .floating-success-indicators {
+    display: none;
+  }
+  
+  /* Simplify icon animations on mobile */
+  .service-card:hover .service-card__icon,
+  .advantage-card:hover .advantage-card__icon,
+  .highlight:hover .highlight__icon,
+  .contact__item:hover .contact__icon {
+    transform: translateY(-2px) scale(1.05);
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce animations on very small screens */
+  .service-card__icon,
+  .advantage-card__icon,
+  .highlight__icon,
+  .contact__icon {
+    animation: none;
+  }
 }

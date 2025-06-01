@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,6 +36,71 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <div class="hero__background">
+            <!-- Floating Bubbles Animation -->
+            <div class="floating-bubbles">
+                <div class="bubble bubble-1"></div>
+                <div class="bubble bubble-2"></div>
+                <div class="bubble bubble-3"></div>
+                <div class="bubble bubble-4"></div>
+                <div class="bubble bubble-5"></div>
+                <div class="bubble bubble-6"></div>
+                <div class="bubble bubble-7"></div>
+                <div class="bubble bubble-8"></div>
+            </div>
+            
+            <!-- AI Code Particles -->
+            <div class="code-particles">
+                <div class="particle particle-1">{ AI }</div>
+                <div class="particle particle-2">NLP</div>
+                <div class="particle particle-3">ML</div>
+                <div class="particle particle-4">LLM</div>
+                <div class="particle particle-5">GPT</div>
+                <div class="particle particle-6">API</div>
+                <div class="particle particle-7">JSON</div>
+                <div class="particle particle-8">Python</div>
+            </div>
+            
+            <!-- Neural Network Animation -->
+            <div class="neural-network-bg">
+                <div class="neural-connection neural-connection-1"></div>
+                <div class="neural-connection neural-connection-2"></div>
+                <div class="neural-connection neural-connection-3"></div>
+                <div class="neural-node-bg neural-node-bg-1"></div>
+                <div class="neural-node-bg neural-node-bg-2"></div>
+                <div class="neural-node-bg neural-node-bg-3"></div>
+                <div class="neural-node-bg neural-node-bg-4"></div>
+            </div>
+            
+            <div class="chatbot-animation">
+                <div class="chat-interface">
+                    <div class="chat-header">
+                        <div class="chat-avatar"></div>
+                        <div class="chat-status">
+                            <div class="status-text">AI Assistant</div>
+                            <div class="status-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="message user-message" style="animation-delay: 1s;">
+                            <div class="message-content">¿Cómo puede ayudarme la IA en mi negocio?</div>
+                        </div>
+                        <div class="message ai-message" style="animation-delay: 2.5s;">
+                            <div class="message-content">Puedo ayudarte con análisis de texto, clasificación automática y procesamiento de lenguaje natural personalizado.</div>
+                        </div>
+                        <div class="message user-message" style="animation-delay: 4s;">
+                            <div class="message-content">¿Qué servicios específicos ofrecen?</div>
+                        </div>
+                        <div class="message ai-message" style="animation-delay: 5.5s;">
+                            <div class="message-content">Desarrollamos chatbots inteligentes, sistemas de análisis de sentimientos, y aplicaciones NLP personalizadas para tu industria.</div>
+                        </div>
+                        <div class="typing-indicator" style="animation-delay: 7s;">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="ai-background">
                 <div class="chat-bubbles">
                     <div class="chat-bubble chat-bubble--1">Clasificar: Positivo ✓</div>
@@ -126,21 +192,27 @@
                     </p>
                     <div class="about__highlights">
                         <div class="highlight">
-                            <div class="highlight__icon">🇪🇸</div>
+                            <div class="highlight__icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div class="highlight__content">
                                 <h4>Ubicados en España</h4>
                                 <p>Comprendemos el mercado europeo</p>
                             </div>
                         </div>
                         <div class="highlight">
-                            <div class="highlight__icon">🔒</div>
+                            <div class="highlight__icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
                             <div class="highlight__content">
                                 <h4>GDPR Compliant</h4>
                                 <p>Protección de datos garantizada</p>
                             </div>
                         </div>
                         <div class="highlight">
-                            <div class="highlight__icon">🚀</div>
+                            <div class="highlight__icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
                             <div class="highlight__content">
                                 <h4>Tecnología Avanzada</h4>
                                 <p>IA de última generación</p>
@@ -166,6 +238,25 @@
 
     <!-- Services Section -->
     <section id="servicios" class="services">
+        <!-- Floating Tech Icons -->
+        <div class="floating-tech-icons">
+            <div class="tech-icon tech-icon-1">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="tech-icon tech-icon-2">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="tech-icon tech-icon-3">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="tech-icon tech-icon-4">
+                <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="tech-icon tech-icon-5">
+                <i class="fas fa-rocket"></i>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Nuestros Servicios</h2>
@@ -173,7 +264,9 @@
             </div>
             <div class="services__grid">
                 <div class="service-card">
-                    <div class="service-card__icon">🧠</div>
+                    <div class="service-card__icon">
+                        <i class="fas fa-language"></i>
+                    </div>
                     <h3 class="service-card__title">Aplicaciones NLP Personalizadas</h3>
                     <p class="service-card__description">
                         Soluciones de procesamiento de lenguaje natural diseñadas específicamente para tus requisitos empresariales.
@@ -185,7 +278,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-card__icon">⚡</div>
+                    <div class="service-card__icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <h3 class="service-card__title">Soluciones Basadas en LLM</h3>
                     <p class="service-card__description">
                         Implementaciones avanzadas de modelos de lenguaje adaptadas a tu industria.
@@ -197,7 +292,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-card__icon">📊</div>
+                    <div class="service-card__icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
                     <h3 class="service-card__title">Consultoría en IA</h3>
                     <p class="service-card__description">
                         Orientación experta sobre adopción de IA y estrategias de implementación.
@@ -209,7 +306,9 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-card__icon">🔬</div>
+                    <div class="service-card__icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
                     <h3 class="service-card__title">Desarrollo de Machine Learning</h3>
                     <p class="service-card__description">
                         Modelos y algoritmos de aprendizaje automático personalizados.
@@ -226,6 +325,22 @@
 
     <!-- Why Choose Us Section -->
     <section class="advantages">
+        <!-- Floating Success Indicators -->
+        <div class="floating-success-indicators">
+            <div class="success-indicator success-indicator-1">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="success-indicator success-indicator-2">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="success-indicator success-indicator-3">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="success-indicator success-indicator-4">
+                <i class="fas fa-circle"></i>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">¿Por Qué Elegirnos?</h2>
@@ -233,28 +348,43 @@
             </div>
             <div class="advantages__grid">
                 <div class="advantage-card">
-                    <div class="advantage-card__icon">🎯</div>
+                    <div class="advantage-card__icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
                     <h3 class="advantage-card__title">Experiencia Profunda en IA</h3>
                     <p class="advantage-card__description">
                         Conocimiento especializado en tecnologías NLP de vanguardia y modelos de lenguaje.
                     </p>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-card__icon">🛠️</div>
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 16V8C20.9996 7.64927 20.9071 7.30481 20.7315 7.00116C20.556 6.69751 20.3037 6.44536 20 6.27L13 2.27C12.696 2.09446 12.3511 2.00205 12 2.00205C11.6489 2.00205 11.304 2.09446 11 2.27L4 6.27C3.69626 6.44536 3.44398 6.69751 3.26846 7.00116C3.09294 7.30481 3.00036 7.64927 3 8V16C3.00036 16.3507 3.09294 16.6952 3.26846 16.9988C3.44398 17.3025 3.69626 17.5546 4 17.73L11 21.73C11.304 21.9055 11.6489 21.9979 12 21.9979C12.3511 21.9979 12.696 21.9055 13 21.73L20 17.73C20.3037 17.5546 20.556 17.3025 20.7315 16.9988C20.9071 16.6952 20.9996 16.3507 21 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 4.21L12 6.81L16.5 4.21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 19.79V14.6L3 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12L16.5 14.6V19.79" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22.08V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 6.81V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3 class="advantage-card__title">Soluciones a Medida</h3>
                     <p class="advantage-card__description">
                         Sin productos estándar: cada solución se construye específicamente para tus necesidades.
                     </p>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-card__icon">🌟</div>
+                    <div class="advantage-card__icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
                     <h3 class="advantage-card__title">Excelencia Europea</h3>
                     <p class="advantage-card__description">
                         Basados en España, entendemos la cultura empresarial europea y los requisitos de protección de datos.
                     </p>
                 </div>
                 <div class="advantage-card">
-                    <div class="advantage-card__icon">✅</div>
+                    <div class="advantage-card__icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                     <h3 class="advantage-card__title">Resultados Probados</h3>
                     <p class="advantage-card__description">
                         Historial de implementaciones exitosas de IA en diversas industrias y casos de uso.
@@ -275,21 +405,27 @@
                     </p>
                     <div class="contact__details">
                         <div class="contact__item">
-                            <div class="contact__icon">📧</div>
+                            <div class="contact__icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div class="contact__text">
                                 <strong>Email</strong>
                                 <a href="mailto:info@epistemial.com">info@epistemial.com</a>
                             </div>
                         </div>
                         <div class="contact__item">
-                            <div class="contact__icon">📞</div>
+                            <div class="contact__icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div class="contact__text">
                                 <strong>Teléfono</strong>
                                 <a href="tel:+34675901588">+34 675 901 588</a>
                             </div>
                         </div>
                         <div class="contact__item">
-                            <div class="contact__icon">📍</div>
+                            <div class="contact__icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div class="contact__text">
                                 <strong>Ubicación</strong>
                                 <span>San Vicente del Raspeig, 03690, Alicante, España</span>
